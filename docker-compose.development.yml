@@ -1,0 +1,12 @@
+version: "3"
+
+name: gym_pass_services
+services:
+  postgres:
+    container_name: gym_pass_db
+    image: postgres
+    ports:
+      - ${PG_PORT}:5432
+    environment:
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}

@@ -18,8 +18,8 @@ describe("Check-in Use Case", () => {
       id: "gym-1",
       title: "javascript Academy",
       description: "",
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
+      latitude: new Decimal(-3.0576514),
+      longitude: new Decimal(-59.9681565),
       phone: "",
     })
 
@@ -31,15 +31,6 @@ describe("Check-in Use Case", () => {
   })
 
   it("should be able to check in", async () => {
-    gymsRepository.items.push({
-      id: "gym-1",
-      title: "javascript Academy",
-      description: "",
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
-      phone: "",
-    })
-
     const { checkIn } = await sut.execute({
       gymId: "gym-1",
       userId: "user-1",
@@ -88,5 +79,27 @@ describe("Check-in Use Case", () => {
     })
 
     expect(checkIn).toBeTruthy()
+  })
+
+  it("should not be able to check in on distant gym", async () => {
+    // -3.1045131,-60.0119061
+
+    gymsRepository.items.push({
+      id: "gym-2",
+      title: "Java Academy",
+      description: "",
+      latitude: new Decimal(-3.1045131),
+      longitude: new Decimal(-60.0119061),
+      phone: "",
+    })
+
+    await expect(() =>
+      sut.execute({
+        gymId: "gym-2",
+        userId: "user-1",
+        userLatitude: -3.0576514,
+        userLongitude: -59.9681565,
+      }),
+    ).rejects.toBeInstanceOf(Error)
   })
 })

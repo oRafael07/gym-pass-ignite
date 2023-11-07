@@ -11,6 +11,8 @@ export default defineConfig({
   ],
   test: {
     reporters: ["verbose"],
+    include: ["**/*.e2e-spec.ts"],
     globals: true,
+    environmentMatchGlobs: [["src/http/controllers/**", "prisma"]],
   },
 })

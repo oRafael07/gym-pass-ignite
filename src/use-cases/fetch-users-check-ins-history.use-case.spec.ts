@@ -1,4 +1,3 @@
-import { expect, describe, it, beforeEach } from "vitest"
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository"
 import { FetchUsersCheckInsHistoryUseCase } from "./fetch-users-check-ins-history.use-case"
 
@@ -9,15 +8,6 @@ describe("Fetch Check-in History Use Case", () => {
   beforeEach(async () => {
     checkInsRepository = new InMemoryCheckInsRepository()
     sut = new FetchUsersCheckInsHistoryUseCase(checkInsRepository)
-
-    // await gymsRepository.create({
-    //   id: "gym-1",
-    //   title: "javascript Academy",
-    //   description: null,
-    //   latitude: -3.0576514,
-    //   longitude: -59.9681565,
-    //   phone: null,
-    // })
   })
 
   it("should be able to fetch check-in history", async () => {

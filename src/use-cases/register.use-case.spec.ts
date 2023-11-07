@@ -1,4 +1,3 @@
-import { expect, describe, it, beforeEach } from "vitest"
 import { RegisterUseCase } from "./register.use-case"
 import { compare } from "bcryptjs"
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository"

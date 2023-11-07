@@ -1,4 +1,3 @@
-import { expect, describe, it, beforeEach, vi, afterEach } from "vitest"
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository"
 import { CheckInUseCase } from "./check-in.use-case"
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository"

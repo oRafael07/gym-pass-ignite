@@ -12,5 +12,7 @@ export default defineConfig({
   test: {
     reporters: ["verbose"],
     globals: true,
+    environmentMatchGlobs: [["src/http/controllers/**", "prisma"]],
+    dir: "src",
   },
 })

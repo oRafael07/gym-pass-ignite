@@ -1,13 +1,15 @@
 import request from "supertest"
 import { app } from "@/app"
 
-describe("(e2e) Register Controller", () => {
+describe("(e2e) Register", () => {
   beforeAll(async () => {
     await app.ready()
   })
+
   afterAll(async () => {
     await app.close()
   })
+
   it("should be able to register", async () => {
     const response = await request(app.server).post("/users").send({
       name: "John Doe",

@@ -23,7 +23,6 @@ describe("Get User Metrics Use Case", () => {
 
     const { checkInsCount } = await sut.execute({
       userId: "user-01",
-      page: 1,
     })
 
     expect(checkInsCount).toEqual(2)
